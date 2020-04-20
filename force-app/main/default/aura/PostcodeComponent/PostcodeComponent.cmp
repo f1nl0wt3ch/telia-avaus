@@ -1,9 +1,20 @@
-<aura:component>
-   <aura:attribute name="postcodes" type="List" default="00520, 04430, 01280, 00675" />
-   <ui:inputSelect multiple="false">
-      <ui:inputSelectOption text="Kaikki postinumerot" disabled="true"/>
-      <aura:iteration items="{!v.postcodes}" var="postcode">
-         <ui:inputSelectOption text="{!postcode}" label="{!postcode}" />
-      </aura:iteration>
-   </ui:inputSelect>
+<aura:component access="global">
+   <aura:attribute name="postcodes" type="List" default="['00520', '04430', '01280', '00675']" />
+   <div class="row">
+      <div class="col-sm-6">Postinumero</div>
+      <div class="col-sm-6">
+         <ui:inputSelect aura:id="postcodes" multiple="false" change="{!c.onSelectPostcodeChange}" >
+            <ui:inputSelectOption text="Kaikki postinumerot" disabled="true"/>
+            <aura:iteration items="{!v.postcodes}" var="postcode">
+               <ui:inputSelectOption text="{!postcode}" label="{!postcode}" />
+            </aura:iteration>
+         </ui:inputSelect>   
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-6">Paikkakunta</div>
+      <div class="col-sm-6">
+          <ui:inputText aura:id="detectedCity" disabled="true"/>
+      </div>
+  </div>
 </aura:component>
