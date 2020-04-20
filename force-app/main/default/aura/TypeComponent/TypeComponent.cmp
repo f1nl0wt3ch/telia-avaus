@@ -1,3 +1,9 @@
 <aura:component>
-
-</aura:component>	
+   <aura:attribute name="types" type="List" default="Opiskelijat, Aikuiset, Lapset, Eläkeläiset" />
+   <ui:inputSelect multiple="false">
+      <ui:inputSelectOption text="Kaikki tyypit" disabled="true" />
+      <aura:iteration items="{!v.types}" var="type">
+         <ui:inputSelectOption text="{!type}" label="{!type}" />
+      </aura:iteration>
+   </ui:inputSelect>
+</aura:component>

@@ -1,3 +1,9 @@
 <aura:component>
-
+    <aura:attribute name="createdDate" type="Date" />
+    <!-- Value change handler -->
+    <aura:handler name="change" value="{!v.createdDate}" action="{!c.handleValueChange}"/>
+    
+    <ui:inputDate aura:id="mySelectedDate" 
+                  displayDatePicker="true" 
+                  value="{!v.createdDate}"/>
 </aura:component>	
