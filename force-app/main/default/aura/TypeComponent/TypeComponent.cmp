@@ -1,9 +1,20 @@
 <aura:component access="global">
-   <aura:attribute name="types" type="List" default="Opiskelijat, Aikuiset, Lapset, Eläkeläiset" />
-   <ui:inputSelect multiple="false">
-      <ui:inputSelectOption text="Kaikki tyypit" disabled="true" />
-      <aura:iteration items="{!v.types}" var="type">
-         <ui:inputSelectOption text="{!type}" label="{!type}" />
-      </aura:iteration>
-   </ui:inputSelect>
+   <aura:attribute name="types" type="List" default="[{id: 0, item: 'Opiskelijat'}, {id: 1, item: 'Aikuiset'}, {id: 2, item: 'Lapset'}, {id: 3, item: 'Eläkeläiset'}]" />
+   <div class="row">
+      <div class="col-sm-6">Liittymän typpi</div>
+      <div class="col-sm-6">
+         <ui:inputSelect multiple="false" change="{!c.onSelectTypeChange}" aura:id="types">
+            <ui:inputSelectOption text="Kaikki tyypit" disabled="true"/>
+            <aura:iteration items="{!v.types}" var="type" indexVar="index">
+               <ui:inputSelectOption text="{!index}" label="{!type.item}" />
+            </aura:iteration>
+         </ui:inputSelect>
+      </div>
+  </div>
+  <div class="row">
+       <div class="col-sm-6">Hinta</div>
+       <div class="col-sm-6">
+          <ui:inputText aura:id="detectedPrice" disabled="true"/>
+       </div>
+  </div>
 </aura:component>

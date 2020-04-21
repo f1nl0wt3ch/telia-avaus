@@ -30,12 +30,7 @@
             </div>
         </div>
         <c:PostcodeComponent />
-        <div class="row">
-            <div class="col-sm-6">Liittymän typpi</div>
-            <div class="col-sm-6">
-                <c:TypeComponent />
-            </div>
-        </div>
+        <c:TypeComponent />
         <div class="row">
             <div class="col-sm-6">Avauspäivä</div>
             <div class="col-sm-6">
