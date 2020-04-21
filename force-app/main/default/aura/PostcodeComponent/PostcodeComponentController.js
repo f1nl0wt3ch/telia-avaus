@@ -3,9 +3,21 @@
 
     },
 
+    doInit : function(com, event, helper){
+        helper.getAllPostcodes(com);
+    },
+
     onSelectPostcodeChange : function(component, event, helper) {
+        var postcodeList = component.get("v.postcodes");
         var selectedPostcode = component.find("postcodes").get("v.value");
-        if(selectedPostcode) {
+        var city = '';
+        for(var i=0; i < postcodeList.length; i++){
+            if(postcodeList[i].Postcode__c === selectedPostcode){
+                city = postcodeList[i].City__c;
+                break;
+            }
+        }
+        /*if(selectedPostcode) {
             var city = '';
             switch(selectedPostcode){
                 case '00520':
@@ -23,8 +35,8 @@
                 default:
                     city = 'Ei ole tietoja';
             }
-            console.log("Selected postcode: "+selectedPostcode+" and detected city: "+city);
-            component.find("detectedCity").set("v.value", city);
-        }
+        }*/
+        console.log("Selected postcode: "+selectedPostcode+" and detected city: "+city);
+        component.find("detectedCity").set("v.value", city);
     }
 })
