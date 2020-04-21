@@ -1,9 +1,11 @@
 <aura:component>
+    <aura:attribute name="newAccount" type="Telia_Account__c" />
     <aura:attribute name="createdDate" type="Date" />
     <!-- Value change handler -->
     <aura:handler name="change" value="{!v.createdDate}" action="{!c.handleValueChange}"/>
     
     <ui:inputDate aura:id="mySelectedDate" 
                   displayDatePicker="true" 
-                  value="{!v.createdDate}"/>
-</aura:component>	
+                  value="{!v.createdDate}"
+    />
+</aura:component>

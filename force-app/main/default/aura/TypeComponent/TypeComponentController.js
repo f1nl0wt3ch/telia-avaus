@@ -25,6 +25,7 @@
                     price = '24.00 €/kk';
             }*/
             component.find("detectedPrice").set("v.value", price);
+            component.set("v.newAccount.Account_Type__c", typeList[parseInt(selectedType) - 1].Id);
         }
     }
 })

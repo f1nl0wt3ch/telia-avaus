@@ -4,4 +4,10 @@ public with sharing class ListTeliaAccountsController {
         return [SELECT Account_Id__c, Firstname__c, Lastname__c, Address__c, Postcode__c,
                        Created_Date__c, SSN__c, Account_Type__c, Comments__c FROM Telia_Account__c ];
     }
+
+    @AuraEnabled
+    public static Telia_Account__c createNewAccount(Telia_Account__c acc){
+        insert acc;
+        return acc;
+    }
 }

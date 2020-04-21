@@ -1,5 +1,5 @@
 ({
-    registerPhonenumber : function(com, event, helper) {
+    myAction : function(component, event, helper) {
 
     }
 })

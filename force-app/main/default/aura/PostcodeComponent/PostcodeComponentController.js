@@ -11,8 +11,10 @@
         var postcodeList = component.get("v.postcodes");
         var selectedPostcode = component.find("postcodes").get("v.value");
         var city = '';
+        var selectedPostcodeObj = null;
         for(var i=0; i < postcodeList.length; i++){
             if(postcodeList[i].Postcode__c === selectedPostcode){
+                selectedPostcodeObj = postcodeList[i];
                 city = postcodeList[i].City__c;
                 break;
             }
@@ -38,5 +40,6 @@
         }*/
         console.log("Selected postcode: "+selectedPostcode+" and detected city: "+city);
         component.find("detectedCity").set("v.value", city);
+        component.set("v.newAccount.Postcode__c", selectedPostcodeObj.Id);
     }
 })
