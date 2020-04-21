@@ -1,12 +1,13 @@
 <aura:component controller="ListTeliaAccountTypesController" access="global">
-   <aura:attribute name="types" type="List" default="[{id: 0, item: 'Opiskelijat'}, {id: 1, item: 'Aikuiset'}, {id: 2, item: 'Lapset'}, {id: 3, item: 'Eläkeläiset'}]" />
+   <aura:attribute name="types" type="Telia_Account_Type__c[]" />
+   <aura:handler action="{!c.doInit}" name="init" value="{!this}" />
    <div class="row">
       <div class="col-sm-6">Liittymän typpi</div>
       <div class="col-sm-6">
-         <ui:inputSelect multiple="false" change="{!c.onSelectTypeChange}" aura:id="types">
+         <ui:inputSelect aura:id="types" multiple="false" change="{!c.onSelectTypeChange}">
             <ui:inputSelectOption text="Kaikki tyypit" disabled="true"/>
-            <aura:iteration items="{!v.types}" var="type" indexVar="index">
-               <ui:inputSelectOption text="{!index}" label="{!type.item}" />
+            <aura:iteration items="{!v.types}" var="type" indexVar="typeIndex">
+               <ui:inputSelectOption text="{!type.Type_Id__c}" label="{!type.Type__c}" />
             </aura:iteration>
          </ui:inputSelect>
       </div>
