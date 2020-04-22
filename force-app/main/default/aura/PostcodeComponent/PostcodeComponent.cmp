@@ -2,21 +2,28 @@
    <aura:attribute name="newAccount" type="Telia_Account__c" />
    <aura:attribute name="postcodes" type="Telia_Postcode__c[]" />
    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
    <div class="row">
-      <div class="col-sm-6">Postinumero</div>
-      <div class="col-sm-6">
-         <ui:inputSelect aura:id="postcodes" multiple="false" change="{!c.onSelectPostcodeChange}">
-            <ui:inputSelectOption text="Kaikki postinumerot" disabled="true"/>
-            <aura:iteration items="{!v.postcodes}" var="postcode">
-               <ui:inputSelectOption text="{!postcode.Postcode__c}" label="{!postcode.Postcode__c}" />
-            </aura:iteration>
-         </ui:inputSelect>   
+      <!--Postinumero-->
+      <div class="col-xl col-lg col-md col-sm">
+         <div class="form-group">
+            <ui:inputSelect aura:id="postcodes" multiple="false" change="{!c.onSelectPostcodeChange}" class="form-control">
+               <ui:inputSelectOption text="Kaikki postinumerot" disabled="true" />
+               <aura:iteration items="{!v.postcodes}" var="postcode">
+                  <ui:inputSelectOption text="{!postcode.Postcode__c}" label="{!postcode.Postcode__c}" />
+               </aura:iteration>
+            </ui:inputSelect>
+         </div>
       </div>
-  </div>
-  <div class="row">
-      <div class="col-sm-6">Paikkakunta</div>
-      <div class="col-sm-6">
-          <ui:inputText aura:id="detectedCity" disabled="true"/>
+      <!--Paikkakunta-->
+      <div class="col-xl col-lg col-md col-sm">
+         <div class="input-group mb-3">
+            <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-default">Paikkakunta</span>
+            </div>
+            <ui:inputText aura:id="detectedCity" disabled="true" class="text-center form-control"/>
+         </div>
       </div>
-  </div>
+   </div>
+
 </aura:component>

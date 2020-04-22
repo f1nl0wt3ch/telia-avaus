@@ -24,7 +24,7 @@
     width: 100%;
 }
 
-.col-sm-6.THIS {
+.col-xl col-lg col-md col-sm.THIS {
     width: 50%;
 }
 

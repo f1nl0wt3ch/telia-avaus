@@ -1,6 +1,5 @@
 <aura:component controller="ListTeliaAccountsController" access="global">
-    <aura:attribute name="newAccount" type="Telia_Account__c"
-                    default="{
+    <aura:attribute name="newAccount" type="Telia_Account__c" default="{
                         'sobjectType':'Telia_Account__c',
                         'Firstname__c':'',
                         'Lastname__c':'',
@@ -10,56 +9,101 @@
                         'SSN__c':'',
                         'Account_Type__c':'',
                         'Comments__c':''
-                    }"
-    />
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 center">
-                <h4>Tervetuloa Telia liittymän avaus lomakkeeseen:</h4>
+                    }" />
+    <ltng:require styles="{!$Resource.Boostrap441CSS}" scripts="{!join(',', 
+      $Resource.Jquery224,
+      $Resource.PopperJS,
+      $Resource.Boostrap441JS)
+    }" />
+
+    <div class="container mt-3" id="mainContainer">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading center">Tervetuloa <a href="https://www.telia.fi/" class="alert-link">Telia</a> liittymän
+                avaus lomakkeeseen!</h4>
+        </div>
+
+        <div class="alert alert-warning" role="alert" id="alertWarningDiv">
+            Tämä henkilötunnus on jo rekisröitty!!!
+        </div>
+
+        <div class="row mt-5 pt-3">
+            <!--Sukunimi-->
+            <div class="col-xl col-lg col-md col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Sukunimi</span>
+                    </div>
+                    <ui:inputText aura:id="lastName" value="{!v.newAccount.Lastname__c}" required="true"
+                        class="form-control" />
+                </div>
+            </div>
+            <!--Etunimi-->
+            <div class="col-xl col-lg col-md col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Etunimi</span>
+                    </div>
+                    <ui:inputText aura:id="firstName" value="{!v.newAccount.Firstname__c}" required="true"
+                        class="form-control" />
+                </div>
             </div>
         </div>
+
+        <!--Henkilötunnus-->
         <div class="row">
-            <div class="col-sm-6">Sukunimi</div>
-            <div class="col-sm-6">
-                <ui:inputText aura:id="lastName" value="{!v.newAccount.Lastname__c}" required="true" />
+            <div class="col-xl col-lg col-md col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Henkilötunnus</span>
+                    </div>
+                    <ui:inputText aura:id="ssn" value="{!v.newAccount.SSN__c}" required="true" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xl col-lg col-md col-sm"><!--NO CONTENT--></div>
+        </div>
+
+        <!--Osoite-->
+        <div class="row">
+            <div class="col-xl col-lg col-md col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Osoite</span>
+                    </div>
+                    <ui:inputText aura:id="address" value="{!v.newAccount.Address__c}" required="true"
+                        class="form-control" />
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">Etunimi</div>
-            <div class="col-sm-6">
-                <ui:inputText aura:id="firstName" value="{!v.newAccount.Firstname__c}" required="true" />
+
+        <c:PostcodeComponent newAccount="{!v.newAccount}" />
+        <c:TypeComponent newAccount="{!v.newAccount}" />
+        <c:CreatedDateComponent newAccount="{!v.newAccount}" />
+
+        <!--Lisätiedot-->
+        <div class="row pt-3">
+            <div class="col-xl col-lg col-md col-sm">
+                <div class="input-group mb-3">
+                    <ui:inputTextArea aura:id="comments" value="{!v.newAccount.Comments__c}" rows="5"
+                        class="form-control" />
+                </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-sm-6">Henkilötunnus</div>
-            <div class="col-sm-6">
-                <ui:inputText aura:id="ssn" value="{!v.newAccount.SSN__c}" required="true" />
+            <div class="col-sm">
+                <!--NO CONTENT-->
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">Osoite</div>
-            <div class="col-sm-6">
-                <ui:inputText aura:id="address" value="{!v.newAccount.Address__c}" required="true" />
+            <div class="col-sm">
+                <ui:button class="btn btn-secondary form-control" press="{!c.registerPhonenumber}">Lähetä</ui:button>
             </div>
-        </div>
-        <c:PostcodeComponent newAccount="{!v.newAccount}"/>
-        <c:TypeComponent newAccount="{!v.newAccount}"/>
-        <div class="row">
-            <div class="col-sm-6">Avauspäivä</div>
-            <div class="col-sm-6">
-                <c:CreatedDateComponent newAccount="{!v.newAccount}"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">Lisätiedot</div>
-            <div class="col-sm-6">
-                <ui:inputTextArea aura:id="comments" value="{!v.newAccount.Comments__c}" rows="5" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 center">
-                <ui:button press="{!c.registerPhonenumber}">Lähetä</ui:button>
+            <div class="col-sm">
+                <!--NO CONTENT-->
             </div>
         </div>
     </div>
-</aura:component>	
+    <div class="container">
+        <div class="alert alert-success" role="alert" id="thankYouAlert">
+            <h4 class="alert-heading text-center">Kiitos. Me olemme vastaanottaneet tilauksesi ja käsittelemme sen pian!</h4>
+        </div>
+    </div>
+</aura:component>

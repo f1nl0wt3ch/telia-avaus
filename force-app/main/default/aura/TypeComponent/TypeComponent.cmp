@@ -2,21 +2,32 @@
    <aura:attribute name="newAccount" type="Telia_Account__c" />
    <aura:attribute name="types" type="Telia_Account_Type__c[]" />
    <aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+
    <div class="row">
-      <div class="col-sm-6">Liittymän typpi</div>
-      <div class="col-sm-6">
-         <ui:inputSelect aura:id="types" multiple="false" change="{!c.onSelectTypeChange}">
-            <ui:inputSelectOption text="Kaikki tyypit" disabled="true"/>
-            <aura:iteration items="{!v.types}" var="type" indexVar="typeIndex">
-               <ui:inputSelectOption text="{!type.Type_Id__c}" label="{!type.Type__c}"/>
-            </aura:iteration>
-         </ui:inputSelect>
+      <!--Liittymän typpi-->
+      <div class="col-xl col-lg col-md col-sm">
+         <div class="form-group">
+            <ui:inputSelect aura:id="types" multiple="false" change="{!c.onSelectTypeChange}" class="form-control">
+               <ui:inputSelectOption text="Kaikki tyypit" disabled="true"/>
+               <aura:iteration items="{!v.types}" var="type" indexVar="typeIndex">
+                  <ui:inputSelectOption text="{!type.Type_Id__c}" label="{!type.Type__c}"  class="text-center"/>
+               </aura:iteration>
+            </ui:inputSelect>
+         </div>
       </div>
-  </div>
-  <div class="row">
-       <div class="col-sm-6">Hinta</div>
-       <div class="col-sm-6">
-          <ui:inputText aura:id="detectedPrice" disabled="true"/>
-       </div>
-  </div>
+      <!--Hinta-->
+      <div class="col-xl col-lg col-md col-sm"><!--NO CONTENT--></div>
+      <div class="col-xl col-lg col-md col-sm">
+         <div class="input-group mb-3">
+            <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-default">Hinta</span>
+            </div>
+            <ui:inputText aura:id="detectedPrice" disabled="true" class="text-center form-control"/>
+            <div class="input-group-append">
+               <span class="input-group-text" id="inputGroup-sizing-default">€/kk</span>
+            </div>
+         </div>
+      </div>
+   </div>
+
 </aura:component>

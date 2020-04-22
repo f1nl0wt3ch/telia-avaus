@@ -3,9 +3,18 @@
     <aura:attribute name="createdDate" type="Date" />
     <!-- Value change handler -->
     <aura:handler name="change" value="{!v.createdDate}" action="{!c.handleValueChange}"/>
-    
-    <ui:inputDate aura:id="mySelectedDate" 
-                  displayDatePicker="true" 
-                  value="{!v.createdDate}"
+    <div class="row">
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Avauspäivä</span>
+                </div>
+                <ui:inputDate aura:id="mySelectedDate" 
+                displayDatePicker="true" 
+                value="{!v.createdDate}"
+                class="form-control"
     />
+            </div>
+        </div>
+    </div>
 </aura:component>
