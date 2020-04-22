@@ -1,12 +1,11 @@
 .THIS .uiInputDate .display {
     display: inline !important;
-    left: 5 !important;
 }
 
 .THIS div#alertWarningDiv {
-    display: none !important;
+    display:  none;
 }
 
 .THIS div#thankYouAlert {
-    display: none !important;
+    display: none;
 }
