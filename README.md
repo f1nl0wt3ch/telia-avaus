@@ -10,15 +10,15 @@
 - Salesforce Development, Schema Builder, Lightning Component, Apex Class, Trigger, Bootstrap 4, jQuery, CSS3, Javascript.
 
 ## Database Configuration
-![result log](https://ibb.co/wMDft5W)
+![result log](https://drive.google.com/open?id=1R_IiwL0Caytva9M0FMhkV-hR3SUvRKL6)
 
 ## Demo
 - https://thinhdinh-dev-ed.lightning.force.com/c/UusiLiittymaApp.app
-![result log](https://ibb.co/6m4JN1Z)
+- ![result log](https://drive.google.com/file/d/1dHm4oZMDPTab6GzQyvgGAAZgs24iPEaM/view?usp=sharing)
 
 ## Testing Result
 - https://thinhdinh-dev-ed.lightning.force.com/lightning/o/Telia_Account__c/list?filterName=Recent
-![result log](https://ibb.co/9yFMtd5)
+- ![result log](https://drive.google.com/open?id=1ZP7v_i2qP1SN7dgDvdR-jjxMHKvnQXhW)
 
 ## Credentials
 - username: **demo@telia.fi**
