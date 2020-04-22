@@ -10,7 +10,7 @@
 - Salesforce Development, Schema Builder, Lightning Component, Apex Class, Trigger, Bootstrap 4, jQuery, CSS3, Javascript.
 
 ## Database Configuration
-![result log](https://drive.google.com/open?id=1R_IiwL0Caytva9M0FMhkV-hR3SUvRKL6)
+- ![result log](https://drive.google.com/open?id=1R_IiwL0Caytva9M0FMhkV-hR3SUvRKL6)
 
 ## Demo
 - https://thinhdinh-dev-ed.lightning.force.com/c/UusiLiittymaApp.app
